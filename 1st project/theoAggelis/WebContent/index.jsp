@@ -72,6 +72,11 @@
 	      </a>
 	    </div>
 	    <div class="nav navbar-nav">
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        	<span class="icon-bar"></span>
+        	<span class="icon-bar"></span>
+      	    <span class="icon-bar"></span>
+      </button>
 	    	<p class="headtitle">Chios Island</p>
 	    </div>
 	     <div class="collapse navbar-collapse" id="myNavbar">
