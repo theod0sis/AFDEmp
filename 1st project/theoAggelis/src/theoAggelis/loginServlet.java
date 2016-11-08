@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.servlet4preview.RequestDispatcher;
+
 
 /**
  * Servlet implementation class loginServlet
@@ -51,12 +53,16 @@ public class loginServlet extends HttpServlet {
 	    	conn.close();
 	        HttpSession session = request.getSession(false);
 	        session.setAttribute("email", email);
+	        conn.close();
 	        response.sendRedirect("/theoAggelis/index.jsp");
 	        return;
-	    	}
-	    	conn.close();
-	    	response.sendRedirect("/theoAggelis/index.jsp");
+	    	}else{
+	    		request.setAttribute("user", "false");
+	    		 javax.servlet.RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+	    		  dispatcher.forward(request, response);
+	    	
 	    	return;
+	    	}
 	    }catch (Exception ex) {
 	      ex.printStackTrace();
 	        }

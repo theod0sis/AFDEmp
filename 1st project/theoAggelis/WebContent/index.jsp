@@ -28,6 +28,11 @@
 	<nav class="navbar navbar-default navbar-fixed-top teo"  >
 	  <div class="container-fluid">
 	    <div class="navbar-header">
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        	<span class="icon-bar"></span>
+        	<span class="icon-bar"></span>
+      	    <span class="icon-bar"></span>
+      </button>
 	      <a class="navbar-brand " href="#">
 	      	<img class="brandimage" src="/theoAggelis/img/chioslogo.png" alt="Chios Travel Guide">
 	      </a>
@@ -44,12 +49,14 @@
       </ul>
           <form class="navbar-form navbar-right" role="form" action="loginServlet" method="post">
                     <div class="form-group">
+                    <% if( (String) request.getAttribute("user")=="false") {%>
+                        <a href="#" title="Wrong email or password" data-toggle="popover" data-placement="bottom" style="color:red;">Oups!</a>
+                        <%} %>
                         <input type="email" name="email" placeholder="Email" class="form-control" required>
-                        <label class="login-field-icon material-icons">perm_identity</label>
                     </div>
                     <div class="form-group">
                         <input type="password"  name="password" placeholder="Κωδικός" class="form-control" required>
-                        <label class="login-field-icon material-icons">lock</label>
+                        
                     </div>
                     <button type="submit" class="btn btn-secondary">Είσοδος</button>
                 </form>
@@ -300,6 +307,12 @@ var marker = new google.maps.Marker({
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
+<!--wrong email popup  -->
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+});
+</script>
 
 <script>
 function deleteSession() {
