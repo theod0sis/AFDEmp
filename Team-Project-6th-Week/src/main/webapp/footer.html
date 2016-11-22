@@ -1,0 +1,129 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%> <%@ page import="domain.User"%>
+<footer>
+	<section id="mainFooter">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="footerWidget">
+						<div class="row text-center">
+							<div class="col-xs-12 col-xs-offset-0 col-md-8 col-md-offset-2">
+								<a class="navbar-brand " href="<%=request.getContextPath()+"/"%>">
+									<img src="images/logo.png" alt="uCook">
+									<p>uCook</p>
+								</a>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<address>
+								<p>
+									<i class="material-icons">location_on</i>&nbsp;Κοραή 3, 105 64
+									Αθήνα <br> <i class="material-icons">phone</i>&nbsp;+30
+									210 3729 070 <br> <i class="material-icons">email</i>&nbsp;<a
+										href="mailto:hello@afdemp.org">hello@afdemp.org</a>
+								</p>
+							</address>
+						</div>
+						<hr>
+						<div class="row text-center">
+							<p>Η παρούσα διαδικτυακή εφαρμογή αποτελεί εργασία των
+								σπουδαστών:</p>
+							<div class="centered-list">
+								<ul>
+									<li>Αγγελής Θεοδόσης | <a
+										href="https://www.linkedin.com/in/theodosis-aggelis-65717073"
+										target="blank"> <i class="fa fa-linkedin-square"></i>
+									</a> | <a href="https://github.com/theod0sis" target="blank"> <i
+											class="fa fa-github"></i>
+									</a></li>
+									<li>Αντωνίου Αλόη | <a
+										href="https://www.linkedin.com/in/aloeantoniou" target="blank">
+											<i class="fa fa-linkedin-square"></i>
+									</a> | <a href="https://github.com/Aloette" target="blank"> <i
+											class="fa fa-github"></i>
+									</a></li>
+									<li>Ζυμαράκης Όμηρος | <a
+										href="https://gr.linkedin.com/in/omiros-zymarakis-130babba"
+										target="blank"> <i class="fa fa-linkedin-square"></i>
+									</a> | <a href="https://github.com/omzy88" target="blank"> <i
+											class="fa fa-github"></i>
+									</a></li>
+									<li>Κεφαλά Δώρα | <a
+										href="https://gr.linkedin.com/in/theodora-kefala-a7b510118"
+										target="blank"> <i class="fa fa-linkedin-square"></i>
+									</a> | <a href="https://github.com/TheoKef" target="blank"> <i
+											class="fa fa-github"></i>
+									</a></li>
+									<li>Μητρόπουλος Γιάννης | <a
+										href="https://gr.linkedin.com/in/giannis-mitropoulos-4aa7a0a6"
+										target="blank"> <i class="fa fa-linkedin-square"></i>
+									</a> | <a href="https://github.com/GiannisMitr" target="blank">
+											<i class="fa fa-github"></i>
+									</a></li>
+								</ul>
+							</div>
+							<p>
+								Yλοποιήθηκε στα πλαίσια του προγράμματος <a
+									href="http://www.afdemp.org/bootcamp/">1<sup>st</sup>
+									Coding Bootcamp.
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="container-fluid">
+						<h2 class="text-center mainHeading">ΕΠΙΚΟΙΝΩΝΙΑ</h2>
+						<h2></h2>
+						<form method="POST" action="comments">
+							<div class="row">
+								<div
+									class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8  col-md-offset-2 slideanim">
+									<div class="row">
+										<div class="col-xs-12  col-md-6 form-group">
+											<input class="form-control" id="name" name="name"<%if(session.getAttribute("user")!=null){%>
+											value="<%=((User)session.getAttribute("user")).getName()%>"readonly
+											<%}%>placeholder="Όνομα" type="text" required>
+										</div>
+										<div class="col-xs-12  col-md-6 form-group">
+											<input class="form-control" id="email" name="email"<%if(session.getAttribute("user")!=null){%>
+											value="<%=((User)session.getAttribute("user")).getMail()%>"readonly
+											<%}%>placeholder="Email" type="email" required>
+										</div>
+									</div>
+									<textarea class="form-control" id="comments" name="comments"
+										placeholder="Τα σχόλια σας" rows="7" required></textarea>
+									<h4 class="text-center green <%if(session.getAttribute("subm")==null){%>notvis<%}%>">Your comment has been
+										successfully submitted, Thank you!</h4>
+									<br>
+									<div class="row">
+										<div class="col-xs-12 form-group">
+											<button class="btn btn-default btn-lg center-block"
+												type="submit"
+												<%if(session.getAttribute("subm")!=null&&session.getAttribute("user")==null){%>
+												disabled <%}%>>Αποστολή <i class="material-icons contact-icon">mail</i></button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="footerRights">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<p>
+						Copyright © 2016 <a href="<%=request.getContextPath()+"/"%>""
+							target="blank">uCook</a> / Το περιεχόμενο πάρθηκε απο το <a
+							style="color: white;" href="http://akispetretzikis.com">akispetretzikis.com</a
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+</footer>
